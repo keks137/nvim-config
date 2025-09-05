@@ -6,7 +6,8 @@ vim.keymap.set('n', '<leader>l', vim.lsp.buf.code_action, { desc = 'Open diagnos
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>', { desc = 'Filetree [E]xplorer' })
+vim.keymap.set('n', '-', '<cmd>Oil<CR>', { desc = 'Filetree [E]xplorer' })
+vim.keymap.set('n', '<leader>e', '<cmd>Oil<CR>', { desc = 'Filetree [E]xplorer' })
 vim.keymap.set('n', '<leader>Et', '<cmd>term<CR>', { desc = '[T]erminal' })
 vim.keymap.set('n', '<leader>Er', ':update <CR>:source ~/.config/nvim/init.lua<CR>',  { desc = '[R]eload config' })
 vim.keymap.set('n', '<leader>Et', '<cmd>term<CR>', { desc = '[T]erminal' })

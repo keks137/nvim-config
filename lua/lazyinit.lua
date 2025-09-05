@@ -11,7 +11,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Now we can require lazy and set it up with the plugins from plugins.lua
 local lazy = require('lazy')
 
-lazy.setup(require('plugins'), {
+lazy.setup(require('plugins.init'), {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
