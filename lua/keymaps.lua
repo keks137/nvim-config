@@ -13,3 +13,13 @@ vim.keymap.set("n", "<leader>Et", "<cmd>term<CR>", { desc = "[T]erminal" })
 
 -- emergency format
 vim.keymap.set("n", "<leader>F", vim.lsp.buf.format, { desc = "[F]ormat" })
+
+vim.keymap.set("n", "<leader>td", function()
+	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true, desc = "Toggle LSP [D]iagnostics" })
+
+-- disable pageup and pagedown
+vim.keymap.set("", "<PageUp>", "<Nop>")
+vim.keymap.set("", "<PageDown>", "<Nop>")
+vim.keymap.set("i", "<PageUp>", "<Nop>")
+vim.keymap.set("i", "<PageDown>", "<Nop>")
