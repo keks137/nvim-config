@@ -23,3 +23,9 @@ vim.keymap.set("", "<PageUp>", "<Nop>")
 vim.keymap.set("", "<PageDown>", "<Nop>")
 vim.keymap.set("i", "<PageUp>", "<Nop>")
 vim.keymap.set("i", "<PageDown>", "<Nop>")
+
+-- move lines
+vim.keymap.set("n", "<M-j>", "<cmd>m +1<CR>")
+vim.keymap.set("n", "<M-k>", "<cmd>m -2<CR>")
+vim.keymap.set("i", "<M-j>", "<cmd>m +1<CR>")
+vim.keymap.set("i", "<M-k>", "<cmd>m -2<CR>")

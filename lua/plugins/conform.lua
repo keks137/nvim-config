@@ -35,6 +35,7 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
+			zig = { "zigfmt" },
 			kotlin = { "ktlint" },
 
 			javascript = { "biome" },
@@ -49,6 +50,7 @@ return { -- Autoformat
 			-- You can use 'stop_after_first' to run the first available formatter from the list
 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
+
 		formatters = {
 			ktlint = {
 
