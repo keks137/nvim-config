@@ -9,6 +9,14 @@ return {
 			view_options = {
 
 				show_hidden = true,
+				is_always_hidden = function(name, bufnr)
+					local m = name:match("^%..")
+					return m ~= nil
+				end,
+				sort = {
+					{ "type", "asc" },
+					{ "name", "asc" },
+				},
 			},
 		})
 	end,
