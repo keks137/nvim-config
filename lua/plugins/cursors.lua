@@ -1,134 +1,30 @@
-return {
-	"brenton-leighton/multiple-cursors.nvim",
-	version = "*", -- Use the latest tagged version
-	opts = {}, -- This causes the plugin setup function to be called
-	keys = {
-		{ "<C-j>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "x" }, desc = "Add cursor and move down" },
-		{ "<C-k>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "x" }, desc = "Add cursor and move up" },
+vim.pack.add({
+	"https://github.com/brenton-leighton/multiple-cursors.nvim",
+})
 
-		{ "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
-		{ "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move down" },
+require("multiple-cursors").setup({})
 
-		{
-			"<C-LeftMouse>",
-			"<Cmd>MultipleCursorsMouseAddDelete<CR>",
-			mode = { "n", "i" },
-			desc = "Add or remove cursor",
-		},
+local map = vim.keymap.set
 
-		{
-			"<Leader>m",
-			"<Cmd>MultipleCursorsAddVisualArea<CR>",
-			mode = { "x" },
-			desc = "Add cursors to the lines of the visual area",
-		},
+map({ "n", "x" }, "<C-j>", "<Cmd>MultipleCursorsAddDown<CR>", { desc = "Add cursor and move down" })
+map({ "n", "x" }, "<C-k>", "<Cmd>MultipleCursorsAddUp<CR>", { desc = "Add cursor and move up" })
 
-		{ "<Leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
-		{
-			"<Leader>A",
-			"<Cmd>MultipleCursorsAddMatchesV<CR>",
-			mode = { "n", "x" },
-			desc = "Add cursors to cword in previous area",
-		},
+map({ "n", "i", "x" }, "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", { desc = "Add cursor and move up" })
+map({ "n", "i", "x" }, "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", { desc = "Add cursor and move down" })
 
-		{
-			"<C-n>",
-			"<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-			mode = { "n", "x" },
-			desc = "Add cursor and jump to next cword",
-		},
-		{ "<C-d>", "<Cmd>MultipleCursorsJumpNextMatch<CR>", mode = { "n", "x" }, desc = "Jump to next cword" },
+map({ "n", "i" }, "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", { desc = "Add or remove cursor" })
 
-		{ "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
-	},
-}
+map("x", "<Leader>m", "<Cmd>MultipleCursorsAddVisualArea<CR>", { desc = "Add cursors to the lines of the visual area" })
 
---[[
-old
-{
-	"brenton-leighton/multiple-cursors.nvim",
-	version = "*", -- Use the latest tagged version
-	opts = {}, -- This causes the plugin setup function to be called
-	keys = {
-		{ "<C-j>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "x" }, desc = "Add cursor and move down" },
-		{ "<C-k>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "x" }, desc = "Add cursor and move up" },
+map({ "n", "x" }, "<Leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", { desc = "Add cursors to cword" })
+map(
+	{ "n", "x" },
+	"<Leader>A",
+	"<Cmd>MultipleCursorsAddMatchesV<CR>",
+	{ desc = "Add cursors to cword in previous area" }
+)
 
-		{ "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
-		{ "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move down" },
+map({ "n", "x" }, "<C-n>", "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", { desc = "Add cursor and jump to next cword" })
+map({ "n", "x" }, "<C-d>", "<Cmd>MultipleCursorsJumpNextMatch<CR>", { desc = "Jump to next cword" })
 
-		{
-			"<C-LeftMouse>",
-			"<Cmd>MultipleCursorsMouseAddDelete<CR>",
-			mode = { "n", "i" },
-			desc = "Add or remove cursor",
-		},
-
-		{
-			"<Leader>M",
-			"<Cmd>MultipleCursorsAddVisualArea<CR>",
-			mode = { "x" },
-			desc = "Add cursors to the lines of the visual area",
-		},
-
-		{ "<Leader>m", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
-		{
-			"<Leader>A",
-			"<Cmd>MultipleCursorsAddMatchesV<CR>",
-			mode = { "n", "x" },
-			desc = "Add cursors to cword in previous area",
-		},
-
-		{
-			"<Leader>j",
-			"<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-			mode = { "n", "x" },
-			desc = "Add cursor and jump to next cword",
-		},
-		{ "<Leader>J", "<Cmd>MultipleCursorsJumpNextMatch<CR>", mode = { "n", "x" }, desc = "Jump to next cword" },
-
-		{ "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
-	},
-	config = function(_, opts)
-		require("multiple-cursors").setup(opts)
-	end,
-}
---]]
---[[
-  custom_key_maps = {
-    -- Override 'w' with spider motion
-    {
-      { 'n', 'x' },
-      'w',
-      function(_, count)
-        local cnt = (count == 0) and 1 or count
-        for _ = 1, cnt do
-          require('spider').motion 'w'
-        end
-      end,
-    },
-
-    -- Override 'e' with spider motion
-    {
-      { 'n', 'x' },
-      'e',
-      function(_, count)
-        local cnt = (count == 0) and 1 or count
-        for _ = 1, cnt do
-          require('spider').motion 'e'
-        end
-      end,
-    },
-
-    -- Override 'b' with spider motion
-    {
-      { 'n', 'x' },
-      'b',
-      function(_, count)
-        local cnt = (count == 0) and 1 or count
-        for _ = 1, cnt do
-          require('spider').motion 'b'
-        end
-      end,
-    },
-  },
-  ]]
+map({ "n", "x" }, "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", { desc = "Lock virtual cursors" })
