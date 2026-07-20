@@ -25,6 +25,7 @@ map(
 )
 
 map({ "n", "x" }, "<C-n>", "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", { desc = "Add cursor and jump to next cword" })
-map({ "n", "x" }, "<C-d>", "<Cmd>MultipleCursorsJumpNextMatch<CR>", { desc = "Jump to next cword" })
+map({ "n", "x" }, "<C-d>", "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", { desc = "Add cursor and jump to next cword" })
+-- map({ "n", "x" }, "<C-d>", "<Cmd>MultipleCursorsJumpNextMatch<CR>", { desc = "Jump to next cword" })
 
 map({ "n", "x" }, "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", { desc = "Lock virtual cursors" })

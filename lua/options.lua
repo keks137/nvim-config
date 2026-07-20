@@ -62,4 +62,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.o.tabstop = 8
---vim.o.shiftwidth = 4
+vim.o.softtabstop = 8
+vim.o.shiftwidth = 8
+
+vim.opt.wrap = false
