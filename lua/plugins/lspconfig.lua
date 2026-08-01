@@ -95,6 +95,7 @@ vim.diagnostic.config({
 		end,
 	},
 })
+vim.diagnostic.enable(false)
 
 -- Server configurations
 vim.lsp.config("lua_ls", {

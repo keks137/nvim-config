@@ -4,7 +4,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("n", "<leader>n", vim.lsp.buf.code_action, { desc = "Open diagnostic Qickfix Solutio[n]" }) -- great letter, I know
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("t", "<C-[><C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-[><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Filetree [E]xplorer" })
 vim.keymap.set("n", "<leader>e", "<cmd>Oil<CR>", { desc = "Filetree [E]xplorer" })
@@ -22,6 +22,8 @@ end, { silent = true, noremap = true, desc = "Toggle LSP [D]iagnostics" })
 -- disable pageup and pagedown
 vim.keymap.set("", "<PageUp>", "<Nop>")
 vim.keymap.set("", "<PageDown>", "<Nop>")
+vim.keymap.set("n", "<PageUp>", "<Nop>")
+vim.keymap.set("n", "<PageDown>", "<Nop>")
 vim.keymap.set("i", "<PageUp>", "<Nop>")
 vim.keymap.set("i", "<PageDown>", "<Nop>")
 
