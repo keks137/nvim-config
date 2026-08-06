@@ -75,3 +75,4 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.tabstop = 8
 	end,
 })
+vim.opt.termguicolors = true
