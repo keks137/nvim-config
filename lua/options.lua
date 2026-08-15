@@ -64,6 +64,7 @@ vim.opt.scrolloff = 10
 vim.opt.tabstop = 8
 vim.opt.softtabstop = 8
 vim.opt.shiftwidth = 8
+vim.opt.shiftround = true
 
 vim.opt.wrap = false
 

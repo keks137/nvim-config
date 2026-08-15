@@ -27,7 +27,7 @@ M.palette = {
 	blue7 = "#394b70",
 	border = "#15161e",
 	brown = "#a58354",
-	comment = "#565f89",
+	comment = "#f7768e",
 	cyan = "#7dcfff",
 	dark3 = "#545c7e",
 	dark5 = "#737aa2",
@@ -99,7 +99,7 @@ M.highlights = {
 
 	-- Syntax
 	Character = { fg = C.green, bg = C.none },
-	Comment = { fg = C.red, bg = C.none },
+	Comment = { fg = C.comment, bg = C.none },
 	Constant = { fg = C.orange, bg = C.none },
 	Debug = { fg = C.orange, bg = C.none },
 	Error = { fg = C.red1, bg = C.none },
